@@ -29,7 +29,7 @@ Both pinned to Go 1.25+. Local copies are checked out under `reference/` (git-ig
 A single Go binary that wires together config, a Hyperliquid client wrapper, and an MCP server with ~20 registered tools.
 
 ```
-cmd/hyperliquid-mcp/
+cmd/
   main.go              — load config, build hlclient, build mcp.Server, run transport
 
 internal/config/
