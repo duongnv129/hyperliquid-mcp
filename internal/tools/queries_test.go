@@ -3,6 +3,7 @@ package tools
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
 	hyperliquid "github.com/sonirico/go-hyperliquid"
@@ -66,8 +67,15 @@ func TestGetOrderStatus(t *testing.T) {
 	if err != nil {
 		t.Fatalf("handler unexpected error: %v", err)
 	}
-	if out.Data.Status != hyperliquid.OrderQueryStatusSuccess {
-		t.Fatalf("getOrderStatus output = %+v", out)
+	if len(out.Data) == 0 {
+		t.Fatal("getOrderStatus: expected non-empty raw JSON data")
+	}
+	var parsed map[string]any
+	if err := json.Unmarshal(out.Data, &parsed); err != nil {
+		t.Fatalf("getOrderStatus: data is not valid JSON: %v", err)
+	}
+	if parsed["status"] != string(hyperliquid.OrderQueryStatusSuccess) {
+		t.Fatalf("getOrderStatus: unexpected status in JSON: %v", parsed["status"])
 	}
 }
 
