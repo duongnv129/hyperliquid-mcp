@@ -3,6 +3,7 @@ package tools
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
@@ -33,8 +34,8 @@ type GetOrderStatusArgs struct {
 }
 
 type GetOrderStatusResult struct {
-	Message string                        `json:"message"`
-	Data    *hyperliquid.OrderQueryResult `json:"data"`
+	Message string          `json:"message"`
+	Data    json.RawMessage `json:"data"`
 }
 
 type GetUserFillsArgs struct {
@@ -81,7 +82,11 @@ func getOrderStatusHandler(client queriesClient) mcp.ToolHandlerFor[GetOrderStat
 		if err != nil {
 			return nil, GetOrderStatusResult{}, fmt.Errorf("hyperliquid_get_order_status: %w", err)
 		}
-		return nil, GetOrderStatusResult{Message: "Order status retrieved successfully", Data: status}, nil
+		raw, err := json.Marshal(status)
+		if err != nil {
+			return nil, GetOrderStatusResult{}, fmt.Errorf("hyperliquid_get_order_status: marshal: %w", err)
+		}
+		return nil, GetOrderStatusResult{Message: "Order status retrieved successfully", Data: raw}, nil
 	}
 }
 
