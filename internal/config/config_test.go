@@ -50,11 +50,21 @@ func TestLoad(t *testing.T) {
 			wantErr: "HYPERLIQUID_PRIVATE_KEY is required",
 		},
 		{
+			name: "key without 0x prefix is auto-prefixed",
+			env: map[string]string{
+				"HYPERLIQUID_PRIVATE_KEY": "1234567890123456789012345678901234567890123456789012345678901234",
+			},
+			want: Config{
+				PrivateKeyHex: "0x1234567890123456789012345678901234567890123456789012345678901234",
+				Testnet:       false,
+			},
+		},
+		{
 			name: "malformed private key is an error",
 			env: map[string]string{
 				"HYPERLIQUID_PRIVATE_KEY": "not-a-key",
 			},
-			wantErr: "HYPERLIQUID_PRIVATE_KEY must be a 0x-prefixed 64-character hex string",
+			wantErr: "HYPERLIQUID_PRIVATE_KEY must be a 64-character hex string",
 		},
 	}
 
