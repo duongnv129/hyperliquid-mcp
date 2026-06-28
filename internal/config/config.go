@@ -30,8 +30,11 @@ func Load() (Config, error) {
 	if pk == "" {
 		return Config{}, errors.New("HYPERLIQUID_PRIVATE_KEY is required")
 	}
+	if !strings.HasPrefix(pk, "0x") {
+		pk = "0x" + pk
+	}
 	if !privateKeyPattern.MatchString(pk) {
-		return Config{}, fmt.Errorf("HYPERLIQUID_PRIVATE_KEY must be a 0x-prefixed 64-character hex string")
+		return Config{}, fmt.Errorf("HYPERLIQUID_PRIVATE_KEY must be a 64-character hex string")
 	}
 
 	testnet := strings.EqualFold(strings.TrimSpace(os.Getenv("HYPERLIQUID_TESTNET")), "true")
