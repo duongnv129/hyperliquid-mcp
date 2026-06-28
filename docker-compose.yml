@@ -1,0 +1,12 @@
+services:
+  hyperliquid-mcp:
+    image: duongnv129/hyperliquid-mcp:latest
+    command: ["--transport=http", "--addr=:8080"]
+    ports:
+      - "8080:8080"
+    environment:
+      HYPERLIQUID_PRIVATE_KEY: ${HYPERLIQUID_PRIVATE_KEY}
+      HYPERLIQUID_ACCOUNT_ADDRESS: ${HYPERLIQUID_ACCOUNT_ADDRESS:-}
+      HYPERLIQUID_TESTNET: ${HYPERLIQUID_TESTNET:-false}
+      HYPERLIQUID_VAULT_ADDRESS: ${HYPERLIQUID_VAULT_ADDRESS:-}
+    restart: unless-stopped
