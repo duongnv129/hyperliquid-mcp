@@ -5,7 +5,8 @@ RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o hyperliquid-mcp ./cmd
 
-FROM scratch
+FROM alpine:3.21
+RUN apk --no-cache add ca-certificates tzdata
 COPY --from=builder /app/hyperliquid-mcp /hyperliquid-mcp
 ENTRYPOINT ["/hyperliquid-mcp"]
 CMD ["--transport=http", "--addr=:8080"]
