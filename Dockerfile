@@ -1,4 +1,4 @@
-FROM golang:1.26.4-alpine AS builder
+FROM golang:1.26.8-alpine AS builder
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
@@ -8,6 +8,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o hyperliquid-
 FROM alpine:3.21
 RUN apk --no-cache add ca-certificates tzdata
 COPY --from=builder /app/hyperliquid-mcp /hyperliquid-mcp
+USER 65532:65532
 ENTRYPOINT ["/hyperliquid-mcp"]
 CMD ["--transport=http", "--addr=:8080"]
 EXPOSE 8080
