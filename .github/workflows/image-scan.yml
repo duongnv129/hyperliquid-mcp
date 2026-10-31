@@ -1,0 +1,34 @@
+name: Image scan
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - Dockerfile
+      - go.mod
+      - go.sum
+      - .github/workflows/image-scan.yml
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  trivy:
+    name: Trivy image scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build image (not pushed)
+        run: docker build -t hyperliquid-mcp:scan .
+
+      - name: Scan image for fixable HIGH and CRITICAL vulnerabilities
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: hyperliquid-mcp:scan
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: "1"
