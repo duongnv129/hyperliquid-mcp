@@ -3,9 +3,9 @@ module github.com/duongnv129/hyperliquid-mcp
 go 1.27.3
 
 require (
-	github.com/ethereum/go-ethereum v1.17.4
-	github.com/modelcontextprotocol/go-sdk v1.6.1
-	github.com/sonirico/go-hyperliquid v0.37.1
+	github.com/ethereum/go-ethereum v1.17.10
+	github.com/modelcontextprotocol/go-sdk v1.8.0
+	github.com/sonirico/go-hyperliquid v0.46.1
 )
 
 require (
@@ -17,7 +17,7 @@ require (
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
 	github.com/elastic/go-sysinfo v1.15.4 // indirect
 	github.com/elastic/go-windows v1.0.2 // indirect
-	github.com/ethereum/c-kzg-4844/v2 v2.1.6 // indirect
+	github.com/ethereum/c-kzg-4844/v2 v2.1.8 // indirect
 	github.com/google/jsonschema-go v0.4.3 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/holiman/uint256 v1.3.2 // indirect
@@ -31,7 +31,7 @@ require (
 	github.com/rs/zerolog v1.34.0 // indirect
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/segmentio/encoding v0.5.4 // indirect
-	github.com/sonirico/vago v0.11.4 // indirect
+	github.com/sonirico/vago v0.12.0 // indirect
 	github.com/sonirico/vago/lol v0.1.0 // indirect
 	github.com/supranational/blst v0.3.16 // indirect
 	github.com/valyala/fastjson v1.6.10 // indirect
@@ -44,5 +44,6 @@ require (
 	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sync v0.23.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/time v0.15.0 // indirect
 	howett.net/plist v1.0.1 // indirect
 )
