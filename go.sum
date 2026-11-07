@@ -85,8 +85,8 @@ github.com/segmentio/encoding v0.5.4 h1:OW1VRern8Nw6ITAtwSZ7Idrl3MXCFwXHPgqESYfv
 github.com/segmentio/encoding v0.5.4/go.mod h1:HS1ZKa3kSN32ZHVZ7ZLPLXWvOVIiZtyJnO1gPH1sKt0=
 github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible h1:Bn1aCHHRnjv4Bl16T8rcaFjYSrGrIZvpiGO6P3Q4GpU=
 github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible/go.mod h1:5b4v6he4MtMOwMlS0TUMTu2PcXUg8+E1lC7eC3UO/RA=
-github.com/sonirico/go-hyperliquid v0.46.1 h1:IhMO3UmdLYRHbUo3kq8NzP8ZW7n5KDLWQFVJZpYhoJU=
-github.com/sonirico/go-hyperliquid v0.46.1/go.mod h1:0l9Ea8eGkghVgGd3tcXaEVmqv3LniHPva9hb4HVXyC8=
+github.com/sonirico/go-hyperliquid v0.46.2 h1:yZ6ZY8NZB//nlXnQK3wA75VcsxJ8YEPdk/iV7q0IxLQ=
+github.com/sonirico/go-hyperliquid v0.46.2/go.mod h1:eMxt0Z4jh6Af9F2pMgrt3WOr7n3I74GjEjlEAm+jGLA=
 github.com/sonirico/vago v0.12.0 h1:MsD7lB9fsM7pEdF5rt3OdEerC0TThi21aJMQlArnOvM=
 github.com/sonirico/vago v0.12.0/go.mod h1:HCfnyPHId7V+zBZ5BLfIsdHIO+ewo6+uhF1N0hxlldc=
 github.com/sonirico/vago/lol v0.1.0 h1:YjI+JAQ6enMYlpoM23w6J+1b11TJ8rqPpuD2NDHdFlA=
