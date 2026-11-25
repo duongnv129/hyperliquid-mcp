@@ -5,7 +5,7 @@ go 1.27.3
 require (
 	github.com/ethereum/go-ethereum v1.17.10
 	github.com/modelcontextprotocol/go-sdk v1.8.0
-	github.com/sonirico/go-hyperliquid v0.46.1
+	github.com/sonirico/go-hyperliquid v0.46.2
 )
 
 require (
